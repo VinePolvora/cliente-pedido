@@ -1,5 +1,7 @@
 package br.com.casaDoGeladao.clientepedido.cliente.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.casaDoGeladao.clientepedido.cliente.application.repository.ClienteRepository;
@@ -20,4 +22,13 @@ public class ClienteInfraRepository implements ClienteRepository {
 		log.info("[finaliza] ClienteInfraRepository - salva");
 		return cliente;
 	}
+
+	@Override
+	public List<Cliente> buscaTodosClientes() {
+		log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
+		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
+		return null;
+	}
+
+	
 }
