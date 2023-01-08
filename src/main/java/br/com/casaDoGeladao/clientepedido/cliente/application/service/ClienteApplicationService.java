@@ -42,4 +42,15 @@ public class ClienteApplicationService implements ClienteService {
 		log.info("[finaliza] ClienteApplicationService - buscaClienteAtrasId");
 		return new ClienteDetalhadoResponse(cliente);
 	}
+
+	@Override
+	public void deletaClienteAtrasId(UUID idCliente) {
+		log.info("[inicia] ClienteApplicationService - deletaClienteAtrasId");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+//		clienteRepository.deletaCliente(cliente);
+		log.info("[finaliza] ClienteApplicationService - deletaClienteAtrasId");
+		
+		// TODO Auto-generated method stub
+		
+	}
 }
