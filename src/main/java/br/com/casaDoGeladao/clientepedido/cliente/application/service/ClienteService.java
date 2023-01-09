@@ -3,6 +3,7 @@ package br.com.casaDoGeladao.clientepedido.cliente.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteListResponse;
 import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteRequest;
@@ -13,4 +14,5 @@ public interface ClienteService {
 	List<ClienteListResponse> buscaTodosClientes();
 	ClienteDetalhadoResponse buscaClienteAtrasId(UUID idCliente);
 	void deletaClienteAtrasId(UUID idCliente);
+	void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
 }

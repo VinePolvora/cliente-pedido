@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteListResponse;
 import br.com.casaDoGeladao.clientepedido.cliente.application.api.ClienteRequest;
@@ -50,4 +51,15 @@ public class ClienteApplicationService implements ClienteService {
 		clienteRepository.deletaCliente(cliente);
 		log.info("[finaliza] ClienteApplicationService - deletaClienteAtrasId");
 	}
+
+	@Override
+	public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteApplicationService - patchAlteraCliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);
+		log.info("[finaliza] ClienteApplicationService - patchAlteraCliente");		
+	}
+
+
 }
