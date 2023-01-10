@@ -8,4 +8,5 @@ import br.com.casaDoGeladao.clientepedido.pedido.domain.Pedido;
 public interface PedidoRepository {
 	Pedido salvaPedido(Pedido pedido);
 	List<Pedido> buscaPedidosDoClienteComId(UUID idCliente);
+	Pedido buscaPedidoPeloId(UUID idPedido);
 }
