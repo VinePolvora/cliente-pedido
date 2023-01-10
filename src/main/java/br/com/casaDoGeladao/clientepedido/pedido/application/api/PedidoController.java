@@ -20,7 +20,7 @@ public class PedidoController implements PedidoAPI {
 	public PedidoResponse postPedido(UUID idCliente, @Valid PedidoRequest pedidoRequest) {
 		log.info("[inicia] PedidoController - postPedido");
 		log.info("[idCliente]{}", idCliente);
-		PedidoResponse pedido = pedidoService.criaPedido(idCliente,pedidoRequest);
+		PedidoResponse pedido = pedidoService.criaPedido(idCliente, pedidoRequest);
 		log.info("[finaliza] PedidoController - postPedido");
 		return pedido;
 	}
@@ -29,7 +29,7 @@ public class PedidoController implements PedidoAPI {
 	public List<PedidoClienteListResponse> getPedidosDoClienteComId(UUID idCliente) {
 		log.info("[inicia] PedidoController - getPedidosDoClienteComId");
 		log.info("[idCliente]{}", idCliente);
-		List<PedidoClienteListResponse> pedidosDoCliente = pedidoService.buscaPedidosDoClienteComId(idCliente);  
+		List<PedidoClienteListResponse> pedidosDoCliente = pedidoService.buscaPedidosDoClienteComId(idCliente);
 		log.info("[finaliza] PedidoController - getPedidosDoClienteComId");
 		return pedidosDoCliente;
 	}
@@ -38,7 +38,8 @@ public class PedidoController implements PedidoAPI {
 	public PedidoClienteDetalheResponse getPedidoDoClienteAtravesId(UUID idCliente, UUID idPedido) {
 		log.info("[inicia] PedidoController - getPedidoDoClienteAtravesId");
 		log.info("[idCliente]{} - [idPedido] {}", idCliente, idPedido);
+		PedidoClienteDetalheResponse pedido = pedidoService.buscaPedidoDoClienteComId(idCliente, idPedido);
 		log.info("[finaliza] PedidoController - getPedidoDoClienteAtravesId");
-		return null;
+		return pedido;
 	}
 }
