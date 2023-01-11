@@ -42,4 +42,12 @@ public class PedidoController implements PedidoAPI {
 		log.info("[finaliza] PedidoController - getPedidoDoClienteAtravesId");
 		return pedido;
 	}
+
+	@Override
+	public void deletaPedidoAtravesId(UUID idCliente, UUID idPedido) {
+		log.info("[inicia] PedidoController - deletaPedidoAtravesId");
+		log.info("[idCliente]{} - [idPedido] {}", idCliente, idPedido);
+		pedidoService.deletaPedidoDoClienteComId(idCliente, idPedido);
+		log.info("[finaliza] PedidoController - deletaPedidoAtravesId");
+	}
 }
