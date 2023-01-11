@@ -52,12 +52,10 @@ public class PedidoController implements PedidoAPI {
 	}
 
 	@Override
-	public PedidoResponse patchPedido(UUID idCliente, UUID idPedido,
-			@Valid PedidoAlteracaoRequest pedidoAlteracaoRequest) {
+	public void patchPedido(UUID idCliente, UUID idPedido, @Valid PedidoAlteracaoRequest pedidoAlteracaoRequest) {
 		log.info("[inicia] PedidoController - patchPedido");
 		log.info("[idCliente]{} - [idPedido] {}", idCliente, idPedido);
 		log.info("[finaliza] PedidoController - patchPedido");
-		return null;
 	}
-	
+
 }
