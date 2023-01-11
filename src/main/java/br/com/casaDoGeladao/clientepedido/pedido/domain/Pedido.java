@@ -3,6 +3,7 @@ package br.com.casaDoGeladao.clientepedido.pedido.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoAlteracaoRequest;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,5 +42,11 @@ public class Pedido {
 		this.sabor = pedidoRequest.getSabor();
 		this.quantidade = pedidoRequest.getQuantidade();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(PedidoAlteracaoRequest pedidoRequest) {
+		this.sabor = pedidoRequest.getSabor();
+		this.quantidade = pedidoRequest.getQuantidade();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }

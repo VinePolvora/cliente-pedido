@@ -3,6 +3,7 @@ package br.com.casaDoGeladao.clientepedido.pedido.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoAlteracaoRequest;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoClienteDetalheResponse;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoClienteListResponse;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoRequest;
@@ -14,4 +15,6 @@ public interface PedidoService {
 	List<PedidoClienteListResponse> buscaPedidosDoClienteComId(UUID idCliente);
 	PedidoClienteDetalheResponse buscaPedidoDoClienteComId(UUID idCliente, UUID idPedido);
 	void deletaPedidoDoClienteComId(UUID idCliente, UUID idPedido);
+	void alteraPedidoDoClienteComId(UUID idCliente, UUID idPedido,
+			 PedidoAlteracaoRequest pedidoAlteracaoRequest);
 }

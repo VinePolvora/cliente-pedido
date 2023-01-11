@@ -55,6 +55,7 @@ public class PedidoController implements PedidoAPI {
 	public void patchPedido(UUID idCliente, UUID idPedido, @Valid PedidoAlteracaoRequest pedidoAlteracaoRequest) {
 		log.info("[inicia] PedidoController - patchPedido");
 		log.info("[idCliente]{} - [idPedido] {}", idCliente, idPedido);
+		pedidoService.alteraPedidoDoClienteComId(idCliente, idPedido, pedidoAlteracaoRequest);
 		log.info("[finaliza] PedidoController - patchPedido");
 	}
 

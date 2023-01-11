@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.casaDoGeladao.clientepedido.cliente.application.service.ClienteService;
+import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoAlteracaoRequest;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoClienteDetalheResponse;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoClienteListResponse;
 import br.com.casaDoGeladao.clientepedido.pedido.application.api.PedidoRequest;
@@ -56,5 +57,16 @@ public class PedidoApplicationService implements PedidoService {
 		Pedido pedido = pedidoRepository.buscaPedidoPeloId(idPedido);
 		pedidoRepository.deletaPedido(pedido);
 		log.info("[finaliza] PedidoApplicationService - deletaPedidoDoClienteComId");
+	}
+
+	@Override
+	public void alteraPedidoDoClienteComId(UUID idCliente, UUID idPedido,
+			PedidoAlteracaoRequest pedidoAlteracaoRequest) {
+		log.info("[inicia] PedidoApplicationService - alteraPedidoDoClienteComId");
+		clienteService.buscaClienteAtrasId(idCliente);
+		Pedido pedido = pedidoRepository.buscaPedidoPeloId(idPedido);
+		pedido.altera(pedidoAlteracaoRequest);
+		pedidoRepository.salvaPedido(pedido);
+		log.info("[finaliza] PedidoApplicationService - alteraPedidoDoClienteComId");
 	}
 }
